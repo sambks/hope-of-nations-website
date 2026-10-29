@@ -1,0 +1,56 @@
+// PostgreSQL data model for ministry submissions.
+// Connect with DATABASE_URL when ready, then run:
+//   npx prisma migrate dev --name init
+// Phase 2: authenticated /admin dashboard to list and update statuses.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PrayerStatus {
+  NEW
+  PRAYING
+  FOLLOW_UP
+  RESOLVED
+}
+
+model PrayerRequest {
+  id           String       @id @default(cuid())
+  name         String?
+  email        String?
+  phone        String?
+  request      String
+  isAnonymous  Boolean      @default(false) @map("is_anonymous")
+  wantsContact Boolean      @default(false) @map("wants_contact")
+  status       PrayerStatus @default(NEW)
+  createdAt    DateTime     @default(now()) @map("created_at")
+
+  @@index([status, createdAt])
+  @@map("prayer_requests")
+}
+
+model VisitPlan {
+  id           String   @id @default(cuid())
+  name         String
+  contact      String
+  partySize    Int      @map("party_size")
+  note         String?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("visit_plans")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  contact   String
+  message   String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("contact_messages")
+}

@@ -1,0 +1,218 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+@theme inline {
+  --color-navy: #0a1628;
+  --color-navy-deep: #061018;
+  --color-navy-soft: #13233d;
+  --color-gold: #2563eb;
+  --color-gold-soft: #3b82f6;
+  --color-globe: #2563eb;
+  --color-globe-soft: #3b82f6;
+  --color-beige: #f4f6f8;
+  --color-beige-deep: #e8ecf1;
+  --color-sky: #ffffff;
+  --color-sky-mid: #e8eef6;
+  --color-cream: #f4f6f8;
+  --color-muted: #5b6573;
+  --color-ink: #111827;
+  --color-surface: #f4f6f8;
+  --font-serif: var(--font-montserrat);
+  --font-sans: var(--font-open-sans);
+  --font-display: var(--font-montserrat);
+  --shadow-card: none;
+  --shadow-soft: none;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-open-sans), system-ui, sans-serif;
+  letter-spacing: -0.011em;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-serif,
+.font-display {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+::selection {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.photo-blend {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-blend::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 48%, #ffffff 100%),
+    linear-gradient(90deg, #ffffff 0%, transparent 18%, transparent 82%, #ffffff 100%);
+}
+
+.photo-blend-surface::after {
+  background:
+    linear-gradient(180deg, transparent 48%, #f4f6f8 100%),
+    linear-gradient(90deg, #f4f6f8 0%, transparent 18%, transparent 82%, #f4f6f8 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.nav-hotspot {
+  display: none;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+@media (min-width: 1024px) {
+  .nav-hotspot {
+    display: block;
+    height: 16px;
+  }
+
+  .site-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 60;
+    width: 40px;
+    height: 2px;
+    background: #0a1628;
+    opacity: 0.22;
+    transform: translateX(-50%);
+    transition:
+      width 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.35s ease;
+  }
+
+  .site-header:hover::after,
+  .site-header:focus-within::after,
+  .site-header.is-open::after {
+    width: 100%;
+    opacity: 0;
+  }
+
+  .nav-panel {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    transform: translate3d(0, -110%, 0);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.35s ease,
+      box-shadow 0.55s ease;
+  }
+
+  .site-header:hover .nav-panel,
+  .site-header:focus-within .nav-panel,
+  .site-header.is-open .nav-panel {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: 0 16px 40px rgba(10, 22, 40, 0.07);
+  }
+
+  .nav-item {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      opacity 0.4s ease,
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .site-header:hover .nav-item,
+  .site-header:focus-within .nav-item,
+  .site-header.is-open .nav-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .site-header:hover nav .nav-item:nth-child(1),
+  .site-header:focus-within nav .nav-item:nth-child(1) { transition-delay: 80ms; }
+  .site-header:hover nav .nav-item:nth-child(2),
+  .site-header:focus-within nav .nav-item:nth-child(2) { transition-delay: 110ms; }
+  .site-header:hover nav .nav-item:nth-child(3),
+  .site-header:focus-within nav .nav-item:nth-child(3) { transition-delay: 140ms; }
+  .site-header:hover nav .nav-item:nth-child(4),
+  .site-header:focus-within nav .nav-item:nth-child(4) { transition-delay: 170ms; }
+  .site-header:hover nav .nav-item:nth-child(5),
+  .site-header:focus-within nav .nav-item:nth-child(5) { transition-delay: 200ms; }
+  .site-header:hover nav .nav-item:nth-child(6),
+  .site-header:focus-within nav .nav-item:nth-child(6) { transition-delay: 230ms; }
+  .site-header:hover nav .nav-item:nth-child(7),
+  .site-header:focus-within nav .nav-item:nth-child(7) { transition-delay: 260ms; }
+  .site-header:hover nav .nav-item:nth-child(8),
+  .site-header:focus-within nav .nav-item:nth-child(8) { transition-delay: 290ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-panel,
+  .nav-item,
+  .nav-link::after {
+    transition: none;
+  }
+
+  .nav-panel {
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .nav-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .site-header::after {
+    display: none;
+  }
+}

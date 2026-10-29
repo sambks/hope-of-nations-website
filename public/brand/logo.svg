@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+  <title id="title">Hope of Nations Church</title>
+  <desc id="desc">HOPE wordmark with a globe and gold cross, OF NATIONS CHURCH, Place of hope and transformation</desc>
+  <rect width="720" height="360" fill="#0B1F3B"/>
+  <g transform="translate(360,118)">
+    <text x="-188" y="28" fill="#FFFFFF" font-family="Arial Black, Arial, sans-serif" font-size="84" font-weight="800" letter-spacing="6">H</text>
+    <g>
+      <circle r="46" fill="#2E5C96"/>
+      <circle r="42" fill="#4A7FBF"/>
+      <ellipse rx="42" ry="16" fill="none" stroke="#7BA3D4" stroke-width="2"/>
+      <ellipse rx="18" ry="42" fill="none" stroke="#7BA3D4" stroke-width="2"/>
+      <path d="M-42 0 H42" stroke="#7BA3D4" stroke-width="2"/>
+      <path d="M-8 -18 L8 -18 L8 -4 L22 -4 L22 8 L8 8 L8 28 L-8 28 L-8 8 L-22 8 L-22 -4 L-8 -4 Z" fill="#D4AF37"/>
+      <path d="M-5 -15 L5 -15 L5 -1 L19 -1 L19 5 L5 5 L5 25 L-5 25 L-5 5 L-19 5 L-19 -1 L-5 -1 Z" fill="#F1D56B"/>
+    </g>
+    <text x="62" y="28" fill="#FFFFFF" font-family="Arial Black, Arial, sans-serif" font-size="84" font-weight="800" letter-spacing="6">PE</text>
+  </g>
+  <text x="360" y="210" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="8">OF NATIONS CHURCH</text>
+  <line x1="118" y1="248" x2="228" y2="248" stroke="#D4AF37" stroke-width="1.5"/>
+  <line x1="492" y1="248" x2="602" y2="248" stroke="#D4AF37" stroke-width="1.5"/>
+  <text x="360" y="256" text-anchor="middle" fill="#D4AF37" font-family="Georgia, Times New Roman, serif" font-size="22" font-style="italic">Place of hope &amp; transformation</text>
+</svg>
